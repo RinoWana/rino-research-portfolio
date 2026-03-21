@@ -18,7 +18,7 @@ export default async function ResearchPage() {
     .order('created_at', { ascending: false })
 
   // Group by category
-  const categories = [...new Set((articles ?? []).map((a) => a.category))]
+  const categories = Array.from(new Set((articles ?? []).map((a) => a.category)))
 
   return (
     <>
