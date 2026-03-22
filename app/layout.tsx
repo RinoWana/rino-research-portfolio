@@ -7,8 +7,8 @@ export const metadata: Metadata = {
     template: '%s | Rino Riyadi Wana Research',
   },
   description:
-    'Quantitative research in financial technology, computational finance, and algorithmic trading.',
-  keywords: ['quantitative finance', 'research', 'financial technology', 'algorithmic trading'],
+    'Independent research spanning macro analysis, fundamental investing, market flow, and systematic trading.',
+  keywords: ['macro research', 'fundamental analysis', 'market flow', 'systematic trading', 'finance research'],
   authors: [{ name: 'Rino Riyadi Wana' }],
   openGraph: {
     type: 'website',
