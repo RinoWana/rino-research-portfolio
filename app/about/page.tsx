@@ -6,22 +6,22 @@ import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'About',
-  description: 'About Rino Riyadi Wana — quantitative researcher in financial technology.',
+  description: 'About Rino Riyadi Wana — researcher in macro, fundamental analysis, market flow, and systematic trading.',
 }
 
 const researchInterests = [
-  'Hidden Markov Models & Regime Detection',
-  'Algorithmic Trading Systems',
-  'Cryptocurrency Market Microstructure',
-  'Quantitative Risk Management',
-  'Machine Learning in Finance',
-  'Computational Finance',
+  'Macro Analysis & Global Market Dynamics',
+  'Fundamental Valuation & Equity Research',
+  'Market Flow & Liquidity Dynamics',
+  'Systematic & Algorithmic Trading',
+  'Market Regime Detection (HMM)',
+  'Cryptocurrency & Digital Assets',
 ]
 
 const skills = [
-  { category: 'Quantitative',  items: ['HMM / State Space Models', 'Time Series Analysis', 'Backtesting', 'Portfolio Optimization'] },
-  { category: 'Programming',   items: ['Python', 'R', 'NumPy / Pandas', 'hmmlearn / scikit-learn'] },
-  { category: 'Finance',       items: ['Derivatives', 'Market Microstructure', 'Technical Analysis', 'Factor Investing'] },
+  { category: 'Macro & Fundamental', items: ['Top-down Macro Analysis', 'Fundamental Valuation', 'Sector Rotation', 'Flow Analysis'] },
+  { category: 'Systematic',         items: ['HMM / State Space Models', 'Time Series Analysis', 'Backtesting', 'Portfolio Optimization'] },
+  { category: 'Tools',              items: ['Python', 'R', 'NumPy / Pandas', 'hmmlearn / scikit-learn'] },
 ]
 
 export default function AboutPage() {
@@ -50,33 +50,32 @@ export default function AboutPage() {
                 Rino Riyadi Wana
               </h2>
               <p className="text-[0.7rem] tracking-[0.2em] uppercase text-[#C9A84C] mb-6">
-                Quantitative Researcher
+                Independent Researcher
               </p>
               <div className="h-px w-full bg-[#2E2018] mb-8" />
             </div>
 
             <div className="space-y-5 text-[#BFA888] leading-relaxed">
               <p>
-                I am a quantitative researcher focused on the application of statistical models
-                and machine learning techniques to financial markets. My work spans the intersection
-                of applied mathematics, computer science, and financial economics.
+                I am an independent researcher with a broad view of financial markets —
+                drawing from macro economics, fundamental analysis, market flow dynamics,
+                and systematic trading methodologies. I believe markets are best understood
+                through multiple lenses, not a single framework.
               </p>
               <p>
-                My current research explores the use of <strong className="text-[#F5EBD8]">
-                Hidden Markov Models</strong> for detecting market regimes in cryptocurrency
-                markets — specifically developing causal, forward-filtering approaches that
-                prevent lookahead bias and can be deployed in live trading environments.
+                My work ranges from top-down macro analysis and global capital flows to
+                bottom-up fundamental valuation, alongside quantitative research such as
+                using <strong className="text-[#F5EBD8]">Hidden Markov Models</strong> for
+                detecting market regimes — always with an eye toward practical application.
               </p>
               <p>
-                I am committed to rigorous empirical methodology: every claim is backed by
-                out-of-sample validation, proper benchmark comparison, and transparent
-                reporting of both successes and limitations. Research that cannot be reproduced
-                is not research.
+                I am drawn to the intersection of conventional investment thinking and
+                systematic methods — where macro narratives meet data-driven evidence,
+                and where flow dynamics reveal what price alone cannot.
               </p>
               <p>
-                Beyond the technical, I am interested in how quantitative methods can be made
-                more accessible — bridging the gap between academic finance and practical
-                implementation.
+                Committed to intellectual honesty: presenting both what the data supports
+                and where uncertainty remains. Good research acknowledges its own limitations.
               </p>
             </div>
 
@@ -130,10 +129,18 @@ export default function AboutPage() {
                 Open to research collaborations, academic discussions, and professional inquiries.
               </p>
               <a
-                href="mailto:your@email.com"
-                className="text-[#C9A84C] text-sm hover:text-[#E8C87A] transition-colors"
+                href="mailto:rinoriyadiwana.pm@gmail.com"
+                className="block text-[#C9A84C] text-sm hover:text-[#E8C87A] transition-colors mb-2"
               >
-                your@email.com →
+                rinoriyadiwana.pm@gmail.com →
+              </a>
+              <a
+                href="https://www.linkedin.com/in/rino-riyadi-wana-356336254"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block text-[#C9A84C] text-sm hover:text-[#E8C87A] transition-colors"
+              >
+                LinkedIn →
               </a>
             </div>
           </div>

@@ -127,17 +127,16 @@ export default async function HomePage() {
             <div>
               <p className="section-label mb-4">About the Researcher</p>
               <h2 className="font-serif text-3xl md:text-4xl font-semibold text-[#F5EBD8] mb-6 leading-snug">
-                Bridging Theory &<br />
-                <span className="italic text-[#C9A84C]">Quantitative Practice</span>
+                Markets Through<br />
+                <span className="italic text-[#C9A84C]">Multiple Lenses</span>
               </h2>
               <p className="text-[#BFA888] leading-relaxed mb-4">
-                My research focuses on applying mathematical models and computational methods
-                to financial markets — from Hidden Markov Models for regime detection to
-                algorithmic trading systems grounded in empirical evidence.
+                My research draws from macro analysis, fundamental valuation, market flow dynamics,
+                and systematic trading — believing no single lens is sufficient to understand markets.
               </p>
               <p className="text-[#7A6050] leading-relaxed mb-8">
-                Committed to rigorous methodology, reproducibility, and making quantitative
-                insights accessible to the broader research community.
+                Committed to rigorous thinking, intellectual honesty, and bridging the gap
+                between academic research and real-world market behaviour.
               </p>
               <Link href="/about" className="btn-gold">
                 Full Profile <ArrowRight size={14} />

@@ -17,8 +17,8 @@ export default function Footer() {
               Research
             </div>
             <p className="text-[#7A6050] text-sm leading-relaxed">
-              Independent quantitative research in financial technology, computational finance,
-              and algorithmic trading systems.
+              Independent research spanning macro analysis, fundamental deep-dives,
+              market flow, and systematic trading strategies.
             </p>
           </div>
 
@@ -52,10 +52,18 @@ export default function Footer() {
             </p>
             <div className="mt-4 space-y-2">
               <a
-                href="mailto:your@email.com"
+                href="mailto:rinoriyadiwana.pm@gmail.com"
                 className="block text-[#C9A84C] text-sm hover:text-[#E8C87A] transition-colors"
               >
-                your@email.com
+                rinoriyadiwana.pm@gmail.com
+              </a>
+              <a
+                href="https://www.linkedin.com/in/rino-riyadi-wana-356336254"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block text-[#C9A84C] text-sm hover:text-[#E8C87A] transition-colors"
+              >
+                LinkedIn →
               </a>
             </div>
           </div>
@@ -66,7 +74,7 @@ export default function Footer() {
             © {year} Rino Riyadi Wana Research. All rights reserved.
           </p>
           <p className="text-[#7A6050] text-xs tracking-wide">
-            Quantitative Research · Financial Technology · Computational Finance
+            Macro · Fundamental · Flow · Systematic Trading
           </p>
         </div>
       </div>
