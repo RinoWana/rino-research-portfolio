@@ -43,10 +43,10 @@ export default async function HomePage() {
 
           {/* Main title */}
           <h1 className="font-serif font-bold leading-none mb-4 animate-slide-up">
-            <span className="block text-5xl md:text-7xl lg:text-8xl text-[#F5EBD8] tracking-tight">
+            <span className="block text-4xl sm:text-5xl md:text-7xl lg:text-8xl text-[#F5EBD8] tracking-tight">
               Rino Riyadi Wana
             </span>
-            <span className="block text-2xl md:text-4xl lg:text-5xl tracking-[0.35em] text-[#C9A84C] mt-3">
+            <span className="block text-lg sm:text-2xl md:text-4xl lg:text-5xl tracking-[0.2em] sm:tracking-[0.35em] text-[#C9A84C] mt-3">
               R E S E A R C H
             </span>
           </h1>
