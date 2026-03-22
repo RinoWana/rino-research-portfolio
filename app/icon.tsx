@@ -7,19 +7,20 @@ export default function Icon() {
   return new ImageResponse(
     <div
       style={{
-        background:     '#0A0603',
+        background:     'linear-gradient(135deg, #8B6914 0%, #4A3800 50%, #1a0f00 100%)',
         width:          '100%',
         height:         '100%',
         display:        'flex',
         alignItems:     'center',
         justifyContent: 'center',
-        color:          '#C9A84C',
-        fontSize:       22,
-        fontWeight:     700,
+        color:          '#FFFFFF',
+        fontSize:       13,
+        fontWeight:     900,
         fontFamily:     'Georgia, serif',
+        letterSpacing:  '-0.5px',
       }}
     >
-      R
+      RRW
     </div>,
     { ...size },
   )
