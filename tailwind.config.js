@@ -8,39 +8,32 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        brown: {
-          50:  '#fdf8f0',
-          100: '#f5e6d0',
-          200: '#ead0a8',
-          300: '#d9b07a',
-          400: '#c8903e',
-          500: '#b8762a',
-          600: '#9a6020',
-          700: '#7a4a18',
-          800: '#5c3510',
-          900: '#3d2208',
-          950: '#1a0f05',
+        ink: {
+          DEFAULT: '#1A1F35',
+          950: '#0B0E1A',
+          900: '#12172B',
+          800: '#1A1F35',
         },
-        gold: {
-          DEFAULT: '#C9A84C',
-          light: '#E8C87A',
-          dark: '#9A7030',
+        navy: {
+          DEFAULT: '#2E3A7E',
         },
-        surface: {
-          DEFAULT: '#140D08',
-          card: '#1E1510',
-          hover: '#261A10',
+        peri: {
+          DEFAULT: '#C6CCF5',
+          dim: '#8F9BD8',
         },
+        rule: {
+          light: '#D2D6E2',
+          DEFAULT: '#3C4570',
+        },
+        offwhite: '#FCFCFD',
+        muted: '#5D6478',
       },
       fontFamily: {
-        serif: ['Playfair Display', 'Georgia', 'serif'],
-        sans:  ['Inter', 'system-ui', 'sans-serif'],
+        sans: ["'TeX Gyre Heros'", "'Helvetica Neue'", 'Helvetica', 'Arial', 'sans-serif'],
       },
       backgroundImage: {
         'hero-gradient':
-          'radial-gradient(ellipse at 30% 50%, #3D2000 0%, #0A0603 60%)',
-        'card-gradient':
-          'linear-gradient(135deg, #1E1510 0%, #140D08 100%)',
+          'radial-gradient(ellipse at 30% 0%, #F5F6FA 0%, #FFFFFF 60%)',
       },
       animation: {
         'fade-in': 'fadeIn 0.6s ease-out',

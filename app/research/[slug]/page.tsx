@@ -3,7 +3,6 @@ import { notFound } from 'next/navigation'
 import Image from 'next/image'
 import Link from 'next/link'
 import { format } from 'date-fns'
-import { ArrowLeft, Clock, Tag } from 'lucide-react'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import rehypeRaw from 'rehype-raw'
@@ -50,7 +49,7 @@ export default async function ArticlePage({ params }: Props) {
             className="object-cover"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0A0603] via-[#0A0603]/40 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-white via-white/40 to-transparent" />
         </div>
       )}
 
@@ -62,37 +61,37 @@ export default async function ArticlePage({ params }: Props) {
       >
         <Link
           href="/research"
-          className="inline-flex items-center gap-2 text-[#7A6050] hover:text-[#C9A84C] text-xs tracking-[0.15em] uppercase mb-8 transition-colors"
+          className="inline-flex items-center gap-2 text-[#5D6478] hover:text-[#2E3A7E] text-xs tracking-[0.15em] uppercase mb-8 transition-colors"
         >
-          <ArrowLeft size={12} /> Back to Research
+          ← Back to Research
         </Link>
 
         {/* Category */}
         <div className="flex items-center gap-3 mb-5">
           <span className="section-label">{article.category}</span>
-          <div className="w-1 h-1 rounded-full bg-[#2E2018]" />
-          <span className="flex items-center gap-1 text-[0.65rem] text-[#7A6050]">
-            <Clock size={11} /> {article.read_time} min read
+          <div className="w-1 h-1 rounded-full bg-[#D2D6E2]" />
+          <span className="text-[0.65rem] text-[#5D6478]">
+            {article.read_time} min read
           </span>
         </div>
 
         {/* Title */}
-        <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-[#F5EBD8] leading-tight mb-6">
+        <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#1A1F35] leading-tight mb-6">
           {article.title}
         </h1>
 
         {/* Excerpt */}
         {article.excerpt && (
-          <p className="text-[#BFA888] text-lg leading-relaxed mb-6 font-serif italic">
+          <p className="text-[#5D6478] text-lg leading-relaxed mb-6">
             {article.excerpt}
           </p>
         )}
 
         {/* Meta */}
-        <div className="flex items-center gap-4 pt-6 border-t border-[#2E2018]">
+        <div className="flex items-center gap-4 pt-6 border-t border-[#D2D6E2]">
           <div>
-            <p className="text-[#F5EBD8] text-sm font-medium">Rino Riyadi Wana</p>
-            <p className="text-[#7A6050] text-xs">
+            <p className="text-[#1A1F35] text-sm font-medium">Rino Riyadi Wana</p>
+            <p className="text-[#5D6478] text-xs">
               {format(new Date(article.created_at), 'MMMM d, yyyy')}
             </p>
           </div>
@@ -104,18 +103,18 @@ export default async function ArticlePage({ params }: Props) {
             {article.tags.map((tag: string) => (
               <span
                 key={tag}
-                className="inline-flex items-center gap-1 text-[0.65rem] tracking-wide text-[#7A6050] border border-[#2E2018] px-3 py-1"
+                className="inline-flex items-center gap-1 text-[0.65rem] tracking-wide text-[#5D6478] border border-[#D2D6E2] px-3 py-1"
               >
-                <Tag size={9} /> {tag}
+                #{tag}
               </span>
             ))}
           </div>
         )}
       </header>
 
-      {/* Gold divider */}
+      {/* Divider */}
       <div className="max-w-3xl mx-auto px-6 lg:px-0 mb-10">
-        <div className="h-px bg-gradient-to-r from-[#C9A84C] via-[#C9A84C]/30 to-transparent" />
+        <div className="h-px bg-gradient-to-r from-[#2E3A7E] via-[#2E3A7E]/30 to-transparent" />
       </div>
 
       {/* Article body */}

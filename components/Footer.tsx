@@ -1,29 +1,25 @@
 import Link from 'next/link'
+import Wordmark from './Wordmark'
 
 export default function Footer() {
   const year = new Date().getFullYear()
 
   return (
-    <footer className="bg-[#0D0905] border-t border-[#2E2018] mt-32">
+    <footer className="bg-[#F5F6FA] border-t border-[#D2D6E2] mt-32">
       <div className="max-w-7xl mx-auto px-6 lg:px-12 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 pb-12 border-b border-[#2E2018]">
+        <div className="flex flex-col md:flex-row gap-12 pb-12 border-b border-[#D2D6E2]">
 
-          {/* Brand */}
-          <div>
-            <div className="font-serif text-xl font-semibold text-[#F5EBD8] mb-1">
-              Rino Riyadi Wana
-            </div>
-            <div className="text-[0.6rem] tracking-[0.3em] uppercase text-[#C9A84C] font-medium mb-4">
-              Research
-            </div>
-            <p className="text-[#7A6050] text-sm leading-relaxed">
-              Independent research spanning macro analysis, fundamental deep-dives,
-              market flow, and systematic trading strategies.
+          {/* Brand (wider column) */}
+          <div className="md:w-[45%]">
+            <Wordmark variant="dark" className="h-8 w-auto mb-4" />
+            <p className="text-[#5D6478] text-sm leading-relaxed max-w-sm">
+              Quantitative finance graduate writing on macro analysis, fundamental
+              research, and systematic trading.
             </p>
           </div>
 
-          {/* Quick links */}
-          <div>
+          {/* Quick links (narrow column) */}
+          <div className="md:w-[20%]">
             <p className="section-label mb-5">Navigation</p>
             <ul className="space-y-3">
               {[
@@ -34,7 +30,7 @@ export default function Footer() {
                 <li key={href}>
                   <Link
                     href={href}
-                    className="text-[#7A6050] hover:text-[#C9A84C] text-sm transition-colors"
+                    className="text-[#5D6478] hover:text-[#2E3A7E] text-sm transition-colors"
                   >
                     {label}
                   </Link>
@@ -43,17 +39,17 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Contact */}
-          <div>
+          {/* Contact (remaining width) */}
+          <div className="md:flex-1">
             <p className="section-label mb-5">Contact</p>
-            <p className="text-[#7A6050] text-sm leading-relaxed">
+            <p className="text-[#5D6478] text-sm leading-relaxed">
               For research inquiries, collaborations, or correspondence, please reach out via
               email or LinkedIn.
             </p>
             <div className="mt-4 space-y-2">
               <a
                 href="mailto:rinoriyadiwana.pm@gmail.com"
-                className="block text-[#C9A84C] text-sm hover:text-[#E8C87A] transition-colors"
+                className="block text-[#2E3A7E] text-sm hover:text-[#1A1F35] transition-colors"
               >
                 rinoriyadiwana.pm@gmail.com
               </a>
@@ -61,7 +57,7 @@ export default function Footer() {
                 href="https://www.linkedin.com/in/rino-riyadi-wana-356336254"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block text-[#C9A84C] text-sm hover:text-[#E8C87A] transition-colors"
+                className="block text-[#2E3A7E] text-sm hover:text-[#1A1F35] transition-colors"
               >
                 LinkedIn →
               </a>
@@ -70,10 +66,10 @@ export default function Footer() {
         </div>
 
         <div className="pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-[#7A6050] text-xs tracking-wide">
+          <p className="text-[#5D6478] text-xs tracking-wide">
             © {year} Rino Riyadi Wana Research. All rights reserved.
           </p>
-          <p className="text-[#7A6050] text-xs tracking-wide">
+          <p className="text-[#5D6478] text-xs tracking-wide">
             Macro · Fundamental · Flow · Systematic Trading
           </p>
         </div>

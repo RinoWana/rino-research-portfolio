@@ -1,20 +1,20 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --bg-primary:   #0A0603;
-  --bg-secondary: #140D08;
-  --bg-card:      #1E1510;
-  --border:       #2E2018;
-  --border-gold:  rgba(201, 168, 76, 0.2);
-  --gold:         #C9A84C;
-  --gold-light:   #E8C87A;
-  --text-primary: #F5EBD8;
-  --text-secondary: #BFA888;
-  --text-muted:   #7A6050;
+  --bg-primary:   #FFFFFF;
+  --bg-secondary: #F5F6FA;
+  --bg-card:      #FFFFFF;
+  --border:       #D2D6E2;
+  --border-accent: rgba(46, 58, 126, 0.2);
+  --accent:       #2E3A7E;
+  --accent-dim:   #5D6478;
+  --navy:         #2E3A7E;
+  --ink:          #1A1F35;
+  --text-primary: #1A1F35;
+  --text-secondary: #2E3A7E;
+  --text-muted:   #5D6478;
 }
 
 html {
@@ -26,7 +26,7 @@ html {
 body {
   background-color: var(--bg-primary);
   color: var(--text-primary);
-  font-family: 'Inter', system-ui, sans-serif;
+  font-family: 'TeX Gyre Heros', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
@@ -37,37 +37,35 @@ body {
 ::-webkit-scrollbar       { width: 6px; }
 ::-webkit-scrollbar-track { background: var(--bg-primary); }
 ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover { background: var(--gold-dark, #9A7030); }
+::-webkit-scrollbar-thumb:hover { background: var(--navy); }
 
 /* ── Selection ── */
-::selection { background: rgba(201,168,76,0.25); color: var(--text-primary); }
+::selection { background: rgba(46,58,126,0.15); color: var(--text-primary); }
 
-/* ── Typography helpers ── */
-.font-serif { font-family: 'Playfair Display', Georgia, serif; }
-
-/* ── Gold divider ── */
+/* ── Hairline rule (replaces the old gold-line motif) ── */
 .gold-line {
   display: block;
   width: 60px;
-  height: 2px;
-  background: linear-gradient(90deg, #C9A84C, transparent);
+  height: 1.6px;
+  background: linear-gradient(90deg, var(--accent), transparent);
 }
 
 /* ── Card ── */
 .card {
   background: var(--bg-card);
-  border: 1px solid var(--border-gold);
-  transition: border-color 0.2s, transform 0.2s;
+  border: 1px solid var(--border);
+  transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
 }
 .card:hover {
-  border-color: rgba(201,168,76,0.5);
+  border-color: rgba(46,58,126,0.4);
+  box-shadow: 0 4px 24px rgba(26,31,53,0.06);
   transform: translateY(-2px);
 }
 
 /* ── Prose (article body) ── */
 .prose-research {
   color: var(--text-primary);
-  font-family: 'Inter', system-ui, sans-serif;
+  font-family: 'TeX Gyre Heros', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   line-height: 1.85;
   font-size: 1.05rem;
 }
@@ -75,7 +73,7 @@ body {
 .prose-research h2,
 .prose-research h3,
 .prose-research h4 {
-  font-family: 'Playfair Display', Georgia, serif;
+  font-family: 'TeX Gyre Heros', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   color: var(--text-primary);
   margin-top: 2.5rem;
   margin-bottom: 1rem;
@@ -84,15 +82,13 @@ body {
 .prose-research h2 { font-size: 1.75rem; font-weight: 700; }
 .prose-research h3 { font-size: 1.35rem; font-weight: 600; }
 .prose-research p  { margin-bottom: 1.5rem; color: var(--text-secondary); }
-.prose-research a  { color: var(--gold); text-decoration: underline; text-underline-offset: 3px; }
-.prose-research a:hover { color: var(--gold-light); }
+.prose-research a  { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+.prose-research a:hover { color: var(--text-primary); }
 .prose-research blockquote {
-  border-left: 3px solid var(--gold);
+  border-left: 3px solid var(--accent);
   padding-left: 1.5rem;
   margin: 2rem 0;
   color: var(--text-secondary);
-  font-style: italic;
-  font-family: 'Playfair Display', serif;
 }
 .prose-research code {
   background: var(--bg-card);
@@ -100,10 +96,10 @@ body {
   border-radius: 4px;
   padding: 2px 6px;
   font-size: 0.875em;
-  color: var(--gold-light);
+  color: var(--accent);
 }
 .prose-research pre {
-  background: #0D0905;
+  background: var(--ink);
   border: 1px solid var(--border);
   border-radius: 8px;
   padding: 1.5rem;
@@ -141,8 +137,8 @@ body {
   padding: 0.75rem 1rem;
   text-align: left;
   font-weight: 600;
-  color: var(--gold);
-  font-family: 'Inter', sans-serif;
+  color: var(--accent);
+  font-family: 'TeX Gyre Heros', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 0.8rem;
   letter-spacing: 0.05em;
   text-transform: uppercase;
@@ -159,8 +155,8 @@ body {
   align-items: center;
   gap: 0.5rem;
   padding: 0.75rem 1.75rem;
-  border: 1px solid var(--gold);
-  color: var(--gold);
+  border: 1px solid var(--accent);
+  color: var(--accent);
   font-size: 0.8rem;
   font-weight: 500;
   letter-spacing: 0.1em;
@@ -170,15 +166,15 @@ body {
   cursor: pointer;
 }
 .btn-gold:hover {
-  background: var(--gold);
-  color: var(--bg-primary);
+  background: var(--accent);
+  color: #FFFFFF;
 }
 .btn-ghost {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
   padding: 0.75rem 1.75rem;
-  border: 1px solid rgba(255,255,255,0.15);
+  border: 1px solid rgba(26,31,53,0.15);
   color: var(--text-secondary);
   font-size: 0.8rem;
   font-weight: 500;
@@ -189,7 +185,7 @@ body {
   cursor: pointer;
 }
 .btn-ghost:hover {
-  border-color: rgba(255,255,255,0.35);
+  border-color: rgba(26,31,53,0.35);
   color: var(--text-primary);
 }
 
@@ -199,15 +195,27 @@ body {
   font-weight: 600;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--accent);
+}
+
+/* ── Editorial row (replaces grid cards for list-style content) ── */
+.editorial-row {
+  border-bottom: 1px solid var(--border);
+  transition: background-color 0.2s;
+}
+.editorial-row:first-child {
+  border-top: 1px solid var(--border);
+}
+.editorial-row:hover {
+  background-color: var(--bg-secondary);
 }
 
 /* ── Admin editor ── */
 .editor-textarea {
-  background: #0D0905;
+  background: var(--bg-secondary);
   border: 1px solid var(--border);
   color: var(--text-primary);
-  font-family: 'Inter', monospace;
+  font-family: 'TeX Gyre Heros', 'Helvetica Neue', Helvetica, Arial, monospace;
   font-size: 0.9rem;
   line-height: 1.7;
   resize: none;
@@ -217,4 +225,4 @@ body {
   height: 100%;
   min-height: 500px;
 }
-.editor-textarea:focus { border-color: rgba(201,168,76,0.4); }
+.editor-textarea:focus { border-color: rgba(198,204,245,0.4); }

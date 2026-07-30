@@ -39,7 +39,7 @@ export default function LoginPage() {
             Rino Riyadi Wana
           </div>
           <div className="text-[0.6rem] tracking-[0.3em] uppercase text-[#C9A84C]">
-            Research — Admin
+            Research · Admin
           </div>
         </div>
 

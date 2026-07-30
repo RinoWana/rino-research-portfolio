@@ -1,8 +1,8 @@
 import Link from 'next/link'
-import { ArrowRight, ArrowUpRight } from 'lucide-react'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import ArticleCard from '@/components/ArticleCard'
+import ArticleRow from '@/components/ArticleRow'
 import { createServerClient } from '@/lib/supabase-server'
 
 export default async function HomePage() {
@@ -12,73 +12,54 @@ export default async function HomePage() {
     .select('*')
     .eq('published', true)
     .order('created_at', { ascending: false })
-    .limit(3)
+    .limit(5)
+
+  const [lead, ...rest] = articles ?? []
+
+  const facts = [
+    { label: 'Research Focus',    value: 'Quant Finance' },
+    { label: 'Methodology',       value: 'Data-Driven' },
+    { label: 'Primary Asset',     value: 'Crypto / Equities' },
+    { label: 'Approach',          value: 'Empirical' },
+  ]
 
   return (
     <>
       <Navbar />
 
       {/* ── HERO ── */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        {/* Background */}
-        <div className="absolute inset-0 bg-[#0A0603]" />
-        <div className="absolute inset-0 bg-hero-gradient opacity-60" />
-        {/* Subtle grid overlay */}
-        <div
-          className="absolute inset-0 opacity-[0.03]"
-          style={{
-            backgroundImage:
-              'linear-gradient(#C9A84C 1px, transparent 1px), linear-gradient(90deg, #C9A84C 1px, transparent 1px)',
-            backgroundSize: '60px 60px',
-          }}
-        />
-        {/* Bottom fade */}
-        <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-[#0A0603] to-transparent" />
+      <section className="relative min-h-screen flex items-center overflow-hidden bg-white">
+        <div className="absolute inset-0 bg-hero-gradient" />
 
-        <div className="relative z-10 max-w-5xl mx-auto px-6 lg:px-12 text-center">
-          {/* Eyebrow */}
+        <div className="relative z-10 max-w-5xl mx-auto px-6 lg:px-12 w-full pt-20">
           <p className="section-label mb-8 animate-fade-in">
             Independent Research
           </p>
 
-          {/* Main title */}
-          <h1 className="font-serif font-bold leading-none mb-4 animate-slide-up">
-            <span className="block text-4xl sm:text-5xl md:text-7xl lg:text-8xl text-[#F5EBD8] tracking-tight">
+          <h1 className="font-bold leading-none mb-4 animate-slide-up">
+            <span className="block text-4xl sm:text-5xl md:text-7xl lg:text-8xl text-[#1A1F35] tracking-tight">
               Rino Riyadi Wana
             </span>
-            <span className="block text-lg sm:text-2xl md:text-4xl lg:text-5xl tracking-[0.2em] sm:tracking-[0.35em] text-[#C9A84C] mt-3">
+            <span className="block text-lg sm:text-2xl md:text-4xl lg:text-5xl tracking-[0.2em] sm:tracking-[0.35em] text-[#2E3A7E] mt-3">
               R E S E A R C H
             </span>
           </h1>
 
-          {/* Gold rule */}
-          <div className="flex items-center justify-center my-8 animate-fade-in">
-            <div className="h-px w-24 bg-gradient-to-r from-transparent to-[#C9A84C]" />
-            <div className="w-1.5 h-1.5 bg-[#C9A84C] mx-3 rotate-45" />
-            <div className="h-px w-24 bg-gradient-to-l from-transparent to-[#C9A84C]" />
-          </div>
+          <div className="h-px w-24 bg-[#2E3A7E] my-8 animate-fade-in" />
 
-          {/* Tagline */}
-          <p className="text-[#BFA888] text-base md:text-lg max-w-2xl mx-auto leading-relaxed mb-12 animate-fade-in">
-            Quantitative research, macro analysis, fundamental deep-dives,
-            and systematic trading — bridging rigorous methodology with market reality.
+          <p className="text-[#5D6478] text-base md:text-lg max-w-2xl leading-relaxed mb-12 animate-fade-in">
+            Quantitative finance graduate exploring macro analysis, fundamental research,
+            and systematic trading, with an eye toward working as an investment analyst.
           </p>
 
-          {/* CTAs */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in">
+          <div className="flex flex-col sm:flex-row gap-4 animate-fade-in">
             <Link href="/research" className="btn-gold">
-              Explore Research <ArrowRight size={14} />
+              Explore Research →
             </Link>
             <Link href="/about" className="btn-ghost">
               About
             </Link>
           </div>
-        </div>
-
-        {/* Scroll indicator */}
-        <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-fade-in">
-          <div className="w-px h-10 bg-gradient-to-b from-transparent to-[#7A6050]" />
-          <span className="text-[0.6rem] tracking-[0.2em] uppercase text-[#7A6050]">Scroll</span>
         </div>
       </section>
 
@@ -87,27 +68,33 @@ export default async function HomePage() {
         <div className="flex items-end justify-between mb-12">
           <div>
             <p className="section-label mb-3">Latest Work</p>
-            <h2 className="font-serif text-3xl md:text-4xl font-semibold text-[#F5EBD8]">
+            <h2 className="text-3xl md:text-4xl font-semibold text-[#1A1F35]">
               Featured Research
             </h2>
           </div>
           <Link
             href="/research"
-            className="hidden sm:flex items-center gap-2 text-[#C9A84C] text-xs tracking-[0.15em] uppercase hover:gap-3 transition-all"
+            className="hidden sm:flex items-center gap-2 text-[#2E3A7E] text-xs tracking-[0.15em] uppercase hover:gap-3 transition-all"
           >
-            All Research <ArrowUpRight size={14} />
+            All Research →
           </Link>
         </div>
 
-        {articles && articles.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {articles.map((article) => (
-              <ArticleCard key={article.id} article={article} />
-            ))}
-          </div>
+        {lead ? (
+          <>
+            <ArticleCard article={lead} />
+
+            {rest.length > 0 && (
+              <div className="mt-16 pt-4">
+                {rest.map((article) => (
+                  <ArticleRow key={article.id} article={article} />
+                ))}
+              </div>
+            )}
+          </>
         ) : (
-          <div className="text-center py-20 border border-[#2E2018] rounded-sm">
-            <p className="font-serif text-xl text-[#7A6050] italic">
+          <div className="text-center py-20 border border-[#D2D6E2]">
+            <p className="text-xl text-[#5D6478] italic">
               Research publications coming soon.
             </p>
           </div>
@@ -115,50 +102,48 @@ export default async function HomePage() {
 
         <div className="mt-8 sm:hidden text-center">
           <Link href="/research" className="btn-gold text-sm">
-            All Research <ArrowUpRight size={14} />
+            All Research →
           </Link>
         </div>
       </section>
 
       {/* ── ABOUT STRIP ── */}
-      <section className="border-t border-[#2E2018] bg-[#0D0905]">
+      <section className="border-t border-[#D2D6E2] bg-[#F5F6FA]">
         <div className="max-w-7xl mx-auto px-6 lg:px-12 py-24">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <p className="section-label mb-4">About the Researcher</p>
-              <h2 className="font-serif text-3xl md:text-4xl font-semibold text-[#F5EBD8] mb-6 leading-snug">
-                Markets Through<br />
-                <span className="italic text-[#C9A84C]">Multiple Lenses</span>
+          <div className="flex flex-col lg:flex-row gap-16">
+            <div className="lg:w-3/5">
+              <p className="section-label mb-4">About Me</p>
+              <h2 className="text-3xl md:text-4xl font-semibold text-[#1A1F35] mb-6 leading-snug">
+                From Applied Math<br />
+                <span className="text-[#2E3A7E]">To Investment Analysis</span>
               </h2>
-              <p className="text-[#BFA888] leading-relaxed mb-4">
-                My research draws from macro analysis, fundamental valuation, market flow dynamics,
-                and systematic trading — believing no single lens is sufficient to understand markets.
+              <p className="text-[#5D6478] leading-relaxed mb-4 max-w-xl">
+                I am a fresh graduate in Applied Mathematics with a focus on quantitative
+                finance. My thesis used Hidden Markov Models to detect market regimes in
+                cryptocurrency data, and I am now looking to apply that background as an
+                investment analyst.
               </p>
-              <p className="text-[#7A6050] leading-relaxed mb-8">
-                Committed to rigorous thinking, intellectual honesty, and bridging the gap
-                between academic research and real-world market behaviour.
+              <p className="text-[#5D6478] leading-relaxed mb-8 max-w-xl">
+                I care about getting the reasoning right, being honest about what the data
+                does and does not support, and connecting quantitative methods to real
+                investment decisions.
               </p>
               <Link href="/about" className="btn-gold">
-                Full Profile <ArrowRight size={14} />
+                Full Profile →
               </Link>
             </div>
 
-            {/* Stats */}
-            <div className="grid grid-cols-2 gap-4">
-              {[
-                { label: 'Research Focus',    value: 'Quant Finance' },
-                { label: 'Methodology',       value: 'Data-Driven' },
-                { label: 'Primary Asset',     value: 'Crypto / Equities' },
-                { label: 'Approach',          value: 'Empirical' },
-              ].map(({ label, value }) => (
+            {/* Facts (hairline list, not a grid) */}
+            <div className="lg:w-2/5 lg:pl-12 lg:border-l border-[#D2D6E2]">
+              {facts.map(({ label, value }) => (
                 <div
                   key={label}
-                  className="p-6 border border-[#2E2018] hover:border-[rgba(201,168,76,0.3)] transition-colors"
+                  className="flex items-baseline justify-between py-4 border-b border-[#D2D6E2]"
                 >
-                  <p className="text-[0.6rem] tracking-[0.2em] uppercase text-[#7A6050] mb-2">
+                  <p className="text-[0.65rem] tracking-[0.2em] uppercase text-[#5D6478]">
                     {label}
                   </p>
-                  <p className="font-serif text-lg text-[#F5EBD8]">{value}</p>
+                  <p className="text-lg text-[#1A1F35]">{value}</p>
                 </div>
               ))}
             </div>

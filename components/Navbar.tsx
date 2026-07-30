@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { Menu, X } from 'lucide-react'
+import Wordmark from './Wordmark'
 
 const navLinks = [
   { href: '/',         label: 'Home' },
@@ -26,7 +26,7 @@ export default function Navbar() {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? 'bg-[#0A0603]/95 backdrop-blur-md border-b border-[#2E2018]'
+          ? 'bg-white/95 backdrop-blur-md border-b border-[#D2D6E2]'
           : 'bg-transparent'
       }`}
     >
@@ -34,13 +34,8 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-20">
 
           {/* Logo */}
-          <Link href="/" className="group flex flex-col leading-none">
-            <span className="font-serif text-lg font-semibold tracking-wide text-[#F5EBD8] group-hover:text-gold transition-colors">
-              Rino Riyadi Wana
-            </span>
-            <span className="text-[0.6rem] tracking-[0.3em] uppercase text-[#C9A84C] font-medium">
-              Research
-            </span>
+          <Link href="/" className="group flex items-center">
+            <Wordmark variant="dark" className="h-8 w-auto" />
           </Link>
 
           {/* Desktop links */}
@@ -51,8 +46,8 @@ export default function Navbar() {
                 href={href}
                 className={`text-[0.75rem] tracking-[0.15em] uppercase font-medium transition-colors ${
                   pathname === href
-                    ? 'text-[#C9A84C]'
-                    : 'text-[#BFA888] hover:text-[#F5EBD8]'
+                    ? 'text-[#2E3A7E]'
+                    : 'text-[#5D6478] hover:text-[#1A1F35]'
                 }`}
               >
                 {label}
@@ -62,25 +57,25 @@ export default function Navbar() {
 
           {/* Mobile toggle */}
           <button
-            className="md:hidden text-[#BFA888] hover:text-[#F5EBD8] transition-colors"
+            className="md:hidden text-[0.7rem] tracking-[0.2em] uppercase font-medium text-[#5D6478] hover:text-[#1A1F35] transition-colors"
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label="Toggle menu"
           >
-            {menuOpen ? <X size={22} /> : <Menu size={22} />}
+            {menuOpen ? 'Close' : 'Menu'}
           </button>
         </div>
       </div>
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div className="md:hidden bg-[#140D08] border-t border-[#2E2018] px-6 py-6 space-y-4">
+        <div className="md:hidden bg-white border-t border-[#D2D6E2] px-6 py-6 space-y-4">
           {navLinks.map(({ href, label }) => (
             <Link
               key={href}
               href={href}
               onClick={() => setMenuOpen(false)}
               className={`block text-[0.75rem] tracking-[0.15em] uppercase font-medium transition-colors ${
-                pathname === href ? 'text-[#C9A84C]' : 'text-[#BFA888]'
+                pathname === href ? 'text-[#2E3A7E]' : 'text-[#5D6478]'
               }`}
             >
               {label}

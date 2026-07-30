@@ -1,12 +1,11 @@
 import type { Metadata } from 'next'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
-import { ArrowUpRight } from 'lucide-react'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'About',
-  description: 'About Rino Riyadi Wana — researcher in macro, fundamental analysis, market flow, and systematic trading.',
+  description: 'About Rino Riyadi Wana, a quantitative finance graduate and aspiring investment analyst with a background in macro analysis, fundamental research, and systematic trading.',
 }
 
 const researchInterests = [
@@ -30,10 +29,10 @@ export default function AboutPage() {
       <Navbar />
 
       {/* Header */}
-      <div className="pt-32 pb-16 border-b border-[#2E2018] bg-[#0D0905]">
+      <div className="pt-32 pb-16 border-b border-[#D2D6E2] bg-[#F5F6FA]">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <p className="section-label mb-4">Researcher Profile</p>
-          <h1 className="font-serif text-4xl md:text-5xl font-bold text-[#F5EBD8]">
+          <h1 className="text-4xl md:text-5xl font-bold text-[#1A1F35]">
             About
           </h1>
           <div className="gold-line mt-5" />
@@ -41,70 +40,77 @@ export default function AboutPage() {
       </div>
 
       <main className="max-w-7xl mx-auto px-6 lg:px-12 py-20">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-16">
+        <div className="flex flex-col lg:flex-row gap-16">
 
-          {/* Bio column */}
-          <div className="lg:col-span-2 space-y-8">
+          {/* Bio column (wider) */}
+          <div className="lg:w-2/3 space-y-8">
             <div>
-              <h2 className="font-serif text-2xl font-semibold text-[#F5EBD8] mb-1">
+              <h2 className="text-2xl font-semibold text-[#1A1F35] mb-1">
                 Rino Riyadi Wana
               </h2>
-              <p className="text-[0.7rem] tracking-[0.2em] uppercase text-[#C9A84C] mb-6">
-                Independent Researcher
+              <p className="text-[0.7rem] tracking-[0.2em] uppercase text-[#2E3A7E] mb-6">
+                Bachelor of Applied Mathematics · Aspiring Investment Analyst
               </p>
-              <div className="h-px w-full bg-[#2E2018] mb-8" />
+              <div className="h-px w-full bg-[#D2D6E2] mb-8" />
             </div>
 
-            <div className="space-y-5 text-[#BFA888] leading-relaxed">
+            <div className="space-y-5 text-[#5D6478] leading-relaxed">
               <p>
-                I am an independent researcher with a broad view of financial markets —
-                drawing from macro economics, fundamental analysis, market flow dynamics,
-                and systematic trading methodologies. I believe markets are best understood
-                through multiple lenses, not a single framework.
+                I am a fresh graduate with a Bachelor of Applied Mathematics degree,
+                focused on quantitative finance. My coursework and thesis centered on
+                building mathematical models for financial markets, and my main interest
+                going forward is working as an investment analyst.
               </p>
               <p>
-                My work ranges from top-down macro analysis and global capital flows to
-                bottom-up fundamental valuation, alongside quantitative research such as
-                using <strong className="text-[#F5EBD8]">Hidden Markov Models</strong> for
-                detecting market regimes — always with an eye toward practical application.
+                For my thesis, I built a{' '}
+                <strong className="text-[#1A1F35]">Hidden Markov Model</strong> system for
+                detecting market regimes in cryptocurrency price data, then used it as the
+                basis for a systematic trading strategy. The project covered model
+                selection with information criteria such as AIC and BIC, a rolling window
+                setup to keep the model from seeing future data, and backtesting against a
+                buy and hold benchmark.
               </p>
               <p>
-                I am drawn to the intersection of conventional investment thinking and
-                systematic methods — where macro narratives meet data-driven evidence,
-                and where flow dynamics reveal what price alone cannot.
+                Beyond the technical side, I am drawn to the work of an investment analyst:
+                reading company fundamentals, tracking macro conditions, and forming a view
+                on where value sits in a market. I want to combine the discipline of
+                quantitative methods with the judgment that fundamental and macro analysis
+                require.
               </p>
               <p>
-                Committed to intellectual honesty: presenting both what the data supports
-                and where uncertainty remains. Good research acknowledges its own limitations.
+                I am early in my career and treat that as something to build on. I am still
+                developing my research habits, but I try to be clear about what a model can
+                and cannot tell you, and I would rather present an uncertain but well
+                reasoned view than a confident one that skips the caveats.
               </p>
             </div>
 
-            {/* Research interests */}
+            {/* Research interests (hairline-separated list, not a grid) */}
             <div className="mt-10">
-              <p className="section-label mb-5">Research Interests</p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <p className="section-label mb-2">Research Interests</p>
+              <div>
                 {researchInterests.map((interest) => (
                   <div
                     key={interest}
-                    className="flex items-center gap-3 p-4 border border-[#2E2018] hover:border-[rgba(201,168,76,0.3)] transition-colors"
+                    className="flex items-center gap-3 py-3 border-b border-[#D2D6E2]"
                   >
-                    <div className="w-1 h-1 bg-[#C9A84C] rotate-45 shrink-0" />
-                    <span className="text-[#BFA888] text-sm">{interest}</span>
+                    <div className="w-1 h-1 bg-[#2E3A7E] rotate-45 shrink-0" />
+                    <span className="text-[#5D6478] text-sm">{interest}</span>
                   </div>
                 ))}
               </div>
             </div>
 
             {/* CTA */}
-            <div className="mt-10 pt-10 border-t border-[#2E2018]">
+            <div className="mt-10 pt-10 border-t border-[#D2D6E2]">
               <Link href="/research" className="btn-gold">
-                View Research <ArrowUpRight size={14} />
+                View Research →
               </Link>
             </div>
           </div>
 
-          {/* Skills sidebar */}
-          <div className="space-y-8">
+          {/* Skills sidebar (narrower) */}
+          <div className="lg:w-1/3 space-y-8">
             {skills.map(({ category, items }) => (
               <div key={category}>
                 <p className="section-label mb-4">{category}</p>
@@ -112,9 +118,9 @@ export default function AboutPage() {
                   {items.map((item) => (
                     <li
                       key={item}
-                      className="flex items-center gap-2 text-[#BFA888] text-sm py-2 border-b border-[#2E2018]"
+                      className="flex items-center gap-2 text-[#5D6478] text-sm py-2 border-b border-[#D2D6E2]"
                     >
-                      <div className="w-px h-3 bg-[#C9A84C]" />
+                      <div className="w-px h-3 bg-[#2E3A7E]" />
                       {item}
                     </li>
                   ))}
@@ -123,14 +129,14 @@ export default function AboutPage() {
             ))}
 
             {/* Contact card */}
-            <div className="p-6 border border-[rgba(201,168,76,0.2)] bg-[#140D08] mt-8">
+            <div className="p-6 border-l-2 border-[#2E3A7E] bg-[#F5F6FA] mt-8">
               <p className="section-label mb-4">Contact</p>
-              <p className="text-[#7A6050] text-sm leading-relaxed mb-4">
+              <p className="text-[#5D6478] text-sm leading-relaxed mb-4">
                 Open to research collaborations, academic discussions, and professional inquiries.
               </p>
               <a
                 href="mailto:rinoriyadiwana.pm@gmail.com"
-                className="block text-[#C9A84C] text-sm hover:text-[#E8C87A] transition-colors mb-2"
+                className="block text-[#2E3A7E] text-sm hover:text-[#1A1F35] transition-colors mb-2"
               >
                 rinoriyadiwana.pm@gmail.com →
               </a>
@@ -138,7 +144,7 @@ export default function AboutPage() {
                 href="https://www.linkedin.com/in/rino-riyadi-wana-356336254"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block text-[#C9A84C] text-sm hover:text-[#E8C87A] transition-colors"
+                className="block text-[#2E3A7E] text-sm hover:text-[#1A1F35] transition-colors"
               >
                 LinkedIn →
               </a>
